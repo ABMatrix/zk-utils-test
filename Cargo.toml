@@ -12,7 +12,7 @@
 
 [package]
 edition = "2018"
-name = "zkp_utils"
+name = "zk-utils-test"
 version = "1.2.0"
 authors = [""]
 description = "Library of shared zkp function utils."
