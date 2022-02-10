@@ -26,10 +26,13 @@ version = "1.4.0"
 
 [dependencies.rand]
 version = "0.6"
+features = ["wasm-bindgen"]
+default-features = false
 
 [dependencies.rand_core]
 version = "0.5"
 features = ["getrandom"]
+default-features = false
 
 [dependencies.sha3]
 version = "0.8"
