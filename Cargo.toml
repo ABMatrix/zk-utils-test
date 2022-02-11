@@ -25,12 +25,12 @@ features = ["serde"]
 version = "1.4.0"
 
 [dependencies.rand]
-version = "0.6"
+version = "*"
 features = ["wasm-bindgen"]
-default-features = false
+#default-features = false
 
 [dependencies.rand_core]
-version = "0.5"
+version = "*"
 features = ["getrandom"]
 default-features = false
 

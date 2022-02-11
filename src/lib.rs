@@ -16,7 +16,7 @@ mod config;
 use config::{ZKError, Hash, HASH};
 use rand::Rng;
 use rand::rngs::OsRng;
-// use rand_core::OsRng;
+//use rand_core::OsRng;
 use sha3::Sha3_512;
 use std::convert::TryInto;
 
