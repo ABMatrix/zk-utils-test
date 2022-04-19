@@ -19,6 +19,7 @@ description = "Library of shared zkp function utils."
 license = "Apache-2.0"
 [dependencies.curve25519-dalek]
 git = "https://github.com/prz23/zk-utils-test"
+branch = "pub"
 version = "2"
 features = ["serde"]
 
