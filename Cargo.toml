@@ -18,8 +18,9 @@ authors = [""]
 description = "Library of shared zkp function utils."
 license = "Apache-2.0"
 [dependencies.curve25519-dalek]
-path = "../curve25519-dalek"
+git = "https://github.com/ABMatrix/curve25519-dalek.git"
 version = "2"
+branch = "pub"
 default-features = false
 features = ["alloc", "u64_backend"]
 
