@@ -18,26 +18,28 @@ authors = [""]
 description = "Library of shared zkp function utils."
 license = "Apache-2.0"
 [dependencies.curve25519-dalek]
-git = "https://github.com/prz23/curve25519-dalek"
-branch = "pub"
+path = "../curve25519-dalek"
 version = "2"
-features = ["serde"]
+default-features = false
+features = ["alloc", "u64_backend"]
 
 [dependencies.lazy_static]
 version = "1.4.0"
 
 [dependencies.rand]
-version = "0.7"
-features = ["wasm-bindgen","getrandom"]
-#default-features = false
-
-[dependencies.rand_core]
-version = "0.5"
-features = ["getrandom"]
+version = "0.7.3"
+features = ["wasm-bindgen", "alloc", "getrandom"]
 default-features = false
 
 [dependencies.sha3]
 version = "0.8"
+default-features = false
 
 [dependencies.failure]
 version = "*"
+default-features = false
+features = ["derive"]
+
+[features]
+default = ["std"]
+std = ["curve25519-dalek/std", "rand/std", "sha3/std", "failure/std", "failure/derive"]
