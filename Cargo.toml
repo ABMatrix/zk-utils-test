@@ -40,4 +40,4 @@ default-features = false
 version = "0.8"
 
 [dependencies.failure]
-version = "*"
+version = "0.1.8"
