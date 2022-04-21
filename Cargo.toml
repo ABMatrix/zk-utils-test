@@ -31,6 +31,7 @@ version = "1.4.0"
 version = "0.7.3"
 features = ["wasm-bindgen", "alloc", "getrandom"]
 default-features = false
+optional = true
 
 [dependencies.sha3]
 version = "0.8"
@@ -43,4 +44,4 @@ features = ["derive"]
 
 [features]
 default = ["std"]
-std = ["curve25519-dalek/std", "rand/std", "sha3/std", "failure/std", "failure/derive"]
+std = ["curve25519-dalek/std", "rand/std", "sha3/std", "failure/std", "failure/derive", "rand"]
