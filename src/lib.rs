@@ -13,7 +13,8 @@ use curve25519_dalek::{
 extern crate lazy_static;
 
 mod config;
-use config::{ZKError, Hash, HASH};
+use config::{Hash, ZKError, HASH};
+#[cfg(feature = "std")]
 use rand::rngs::OsRng;
 use sha3::Sha3_512;
 use std::convert::TryInto;
@@ -31,6 +32,7 @@ lazy_static! {
 /// Serialized data size of a point.
 const RISTRETTO_POINT_SIZE_IN_BYTES: usize = 32;
 
+#[cfg(feature = "std")]
 /// Gets a random Scalar.
 pub fn get_random_scalar() -> Scalar {
     let mut csprng = OsRng;

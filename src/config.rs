@@ -1,5 +1,5 @@
-use sha3::{Digest, Keccak256};
 use failure::Fail;
+use sha3::{Digest, Keccak256};
 
 /// Trait of a replaceable hash algorithm.
 pub trait Hash {
