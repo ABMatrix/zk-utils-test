@@ -1,6 +1,8 @@
 // Copyright 2020 WeDPR Lab Project Authors. Licensed under Apache-2.0.
 
 //! Common utility functions for ZKP.
+#![no_std]
+pub extern crate alloc;
 
 use curve25519_dalek::constants::{RISTRETTO_BASEPOINT_COMPRESSED, RISTRETTO_BASEPOINT_POINT};
 
@@ -13,11 +15,12 @@ use curve25519_dalek::{
 extern crate lazy_static;
 
 mod config;
+use alloc::vec::Vec;
 use config::{Hash, ZKError, HASH};
+use core::convert::TryInto;
 #[cfg(feature = "std")]
 use rand::rngs::OsRng;
 use sha3::Sha3_512;
-use std::convert::TryInto;
 
 lazy_static! {
     /// A base point used by various crypto algorithms.
@@ -89,15 +92,11 @@ pub fn point_to_slice(point: &RistrettoPoint) -> [u8; 32] {
 /// Converts a vector to RistrettoPoint.
 pub fn bytes_to_point(point: &[u8]) -> Result<RistrettoPoint, ZKError> {
     if point.len() != RISTRETTO_POINT_SIZE_IN_BYTES {
-        println!("bytes_to_point decode failed");
         return Err(ZKError::FormatError);
     }
     let point_value = match CompressedRistretto::from_slice(&point).decompress() {
         Some(v) => v,
-        None => {
-            println!("bytes_to_point decompress CompressedRistretto failed");
-            return Err(ZKError::FormatError);
-        }
+        None => return Err(ZKError::FormatError),
     };
     Ok(point_value)
 }

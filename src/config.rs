@@ -1,3 +1,4 @@
+use alloc::vec::Vec;
 use failure::Fail;
 use sha3::{Digest, Keccak256};
 
